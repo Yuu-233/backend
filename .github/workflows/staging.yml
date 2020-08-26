@@ -31,7 +31,10 @@ jobs:
       run: |
         sudo apt-get install -y mysql-client
         mysql --host 127.0.0.1 --port 32574 -uroot -ppassword -e "SHOW DATABASES"
-              -e "SHOW DATABASES"
+        mysql --host 127.0.0.1 --port 32574 -uroot -ppassword -e "CREATE DATABASE freelancer"
+        mysql --host 127.0.0.1 --port 32574 -uroot -ppassword -e "use freelancer"
+        ls
+        pwd
         
         
     - name: Test with Maven
