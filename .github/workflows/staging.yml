@@ -33,7 +33,7 @@ jobs:
         mysql --host 127.0.0.1 --port 32574 -uroot -ppassword -e "SHOW DATABASES"
         mysql --host 127.0.0.1 --port 32574 -uroot -ppassword -e "CREATE DATABASE freelancer"
         mysql --host 127.0.0.1 --port 32574 -uroot -ppassword freelancer -e "source /home/runner/work/backend/backend/database_freelancer_v3.3_5.sql"
-        mysql --host 127.0.0.1 --port 32574 -uroot -ppassword -e "SHOW DATABASES"
+        mysql --host 127.0.0.1 --port 32574 -uroot -ppassword freelancer -e "select * from user where user_id = 1"
         ls
         pwd
         -e "SHOW DATABASES"
