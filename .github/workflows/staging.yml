@@ -36,7 +36,6 @@ jobs:
         mysql --host 127.0.0.1 --port 32574 -uroot -ppassword freelancer -e "select * from user where user_id = 1"
         ls
         pwd
-        -e "SHOW DATABASES"
         
     - name: Test with Maven
       run: mvn test
