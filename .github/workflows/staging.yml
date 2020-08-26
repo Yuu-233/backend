@@ -18,7 +18,7 @@ jobs:
          env:
           MYSQL_ROOT_PASSWORD: password
          ports: 
-           - 32574:3306
+           - 3306
          options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     
     steps:
@@ -30,11 +30,11 @@ jobs:
     - name: Verify MySQL connection from host
       run: |
         sudo apt-get install -y mysql-client
-        mysql --host 127.0.0.1 --port 32574 -uroot -ppassword -e "SHOW DATABASES"
-        mysql --host 127.0.0.1 --port 32574 -uroot -ppassword -e "CREATE DATABASE freelancer"
-        mysql --host 127.0.0.1 --port 32574 -uroot -ppassword freelancer -e "source /home/runner/work/backend/backend/database_freelancer_v3.3_5.sql"
-        mysql --host 127.0.0.1 --port 32574 -uroot -ppassword freelancer -e "select * from user where user_id = 1"
-        mysql --host 127.0.0.1 --port 32574 -uroot -ppassword -e "status"
+        mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -e "SHOW DATABASES"
+        mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -e "CREATE DATABASE freelancer"
+        mysql --host 127.0.0.1 --port 3306 -uroot -ppassword freelancer -e "source /home/runner/work/backend/backend/database_freelancer_v3.3_5.sql"
+        mysql --host 127.0.0.1 --port 3306 -uroot -ppassword freelancer -e "select * from user where user_id = 1"
+        mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -e "status"
         ls
         pwd
         
