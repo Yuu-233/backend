@@ -27,6 +27,7 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
@@ -54,8 +55,9 @@ public class UserControllerTest extends DemoApplicationTests {
 
     @Autowired
     private WebApplicationContext context;
-
-    //    @Autowired
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+//    @Autowired
     @MockBean
     private UserService userService;
 
@@ -74,6 +76,7 @@ public class UserControllerTest extends DemoApplicationTests {
     @AfterEach
     void tearDown() {
     }
+
 
     @Test
     public void change_state() throws Exception {
@@ -94,27 +97,38 @@ public class UserControllerTest extends DemoApplicationTests {
                 .andReturn();
         verify(userService, times(1)).alter_user_info(2, "Aurora Carding", "9031ufxb", "92114684077", "4495771966@598.com", 0);
     }
-//    @Test //failed
-//    public void mylogin() throws Exception{
-//        JSONObject user = new JSONObject("{'user_ID':7, 'userName': 'Erin Scholcroft', 'password': '2079layn',  'user_Name': 'Erin Scholcroft','role': 1, 'email': '4812983934@869.com','phone': '19238276485'}");
-//
-////        MvcResult result = mockMvc.perform(get("/mylogin?username=Phyllys Beadnell&password=3819ooij").contentType(MediaType.APPLICATION_JSON_VALUE))
-////                .andExpect(status().isOk()).andExpect(jsonPath("$.user").value(user)).andReturn();
-//
-//        MvcResult result = mockMvc.perform(get("/mylogin?username=Erin Scholcroft&password=2079layn").contentType(MediaType.APPLICATION_JSON_VALUE))
-//                .andExpect(status().isOk()).andReturn();
-//        String resultContent = result.getResponse().getContentAsString();
-//        JSONObject o = om.readValue(resultContent, new TypeReference<JSONObject>() {});
-//        JSONObject u = o.getJSONObject("user");
-//        assertEquals(user, u);
-//    }
-//        @Test
-//    public void getUserbyId() throws Exception{
+
+//    @Test
+//    public void getUserbyId() throws Exception {
 //        MvcResult result = mockMvc.perform(get("/getUserbyId?userid=3"))
 //                .andExpect(status().isOk()).andReturn();
 //        User u = new User(3, "Calla Bullivant", "6766yopc", "0955435856@831.com", 1, "76796318740");
 //        String resultContent = result.getResponse().getContentAsString();
-//        User user = om.readValue(resultContent, new TypeReference<User>() {});
-//        assertEquals(u, user);
+//        User user = om.readValue(resultContent, new TypeReference<User>() {
+//        });
+//        assertEquals(u.getUser_ID(), user.getUser_ID());
+//        assertEquals(u.getUserName(), user.getUserName());
+//        assertEquals(u.getPassword(), user.getPassword());
+//        assertEquals(u.getEmail(), user.getEmail());
+//        assertEquals(u.getRole(), user.getRole());
+//        assertEquals(u.getPhone(), user.getPhone());
 //    }//非mock模式
+//
+//    @Test
+//    public void getUserbyUsername() throws Exception {
+//        MvcResult result = mockMvc.perform(get("/getUserbyUsername?username=Calla Bullivant"))
+//                .andExpect(status().isOk()).andReturn();
+//        User u = new User(3, "Calla Bullivant", "6766yopc", "0955435856@831.com", 1, "76796318740", passwordEncoder.encode("6766yopc"));
+//        User u2 = new User("Calla Bullivant", "6766yopc", "0955435856@831.com", 1, "76796318740");
+//        String resultContent = result.getResponse().getContentAsString();
+//        User user = om.readValue(resultContent, new TypeReference<User>() {
+//        });
+//        assertEquals(u.getUser_ID(), user.getUser_ID());
+//        assertEquals(u.getUserName(), user.getUserName());
+//        assertEquals(u.getPassword(), user.getPassword());
+//        assertEquals(u.getEmail(), user.getEmail());
+//        assertEquals(u.getRole(), user.getRole());
+//        assertEquals(u.getPhone(), user.getPhone());
+//    }//非mock模式
+
 }

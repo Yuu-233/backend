@@ -76,7 +76,7 @@ public class LoginControllerTest extends DemoApplicationTests {
     }
     @Test
     public void register_success() throws Exception {
-        MvcResult result1 = mockMvc.perform(get("/register?username=Aurora Tarantino&password=789wedfgff&email=24277898967@177.com&phone=15996318788").contentType(MediaType.APPLICATION_JSON_VALUE))
+        MvcResult result1 = mockMvc.perform(get("/register?username=Aurora Green&password=7852369&email=24277898967@177.com&phone=15996318788").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.status").value(1)).andReturn();
     }
     @Test

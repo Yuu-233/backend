@@ -32,7 +32,7 @@ public class ResumeServiceTest extends DemoApplicationTests {
     @MockBean
     private ResumeRepository resumeRepository;
 
-    // should be 4 tests
+//     should be 4 tests
     @Test
     public void get_applicants() {
         List<Resume> resumes = new LinkedList<>();

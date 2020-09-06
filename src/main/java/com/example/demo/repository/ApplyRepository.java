@@ -35,7 +35,7 @@ public interface ApplyRepository extends JpaRepository<Apply_Info, Apply_InfoPK>
 
     @Transactional
     @Modifying
-    @Query(value="delete from Apply_info where User_ID=?1 and Rec_ID=?2", nativeQuery = true)
+    @Query(value="delete from apply_info where User_ID=?1 and Rec_ID=?2", nativeQuery = true)
     public void delete_apply_info(Integer user_id,Integer rec_id);
 
     @Transactional

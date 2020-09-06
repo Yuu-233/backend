@@ -30,15 +30,15 @@ public interface RecRepository extends JpaRepository<Recruit_Info,Integer> {
                                   " values(?1,?2,?3,?4,?5,?6,0,?7,?8,?9,?10)",nativeQuery = true)
     void create_job(Integer userid,String salary,String location,String schedule,String title,String cate,Integer quota,String desc,String exp,String edu);
 
-    @Query(value="select * from Recruit_Info where User_ID = ?",nativeQuery = true)
+    @Query(value="select * from recruit_info where User_ID = ?",nativeQuery = true)
     List<Recruit_Info> getRecbyId(Integer userid);
 
     @Transactional
     @Modifying
-    @Query(value = "delete from Recruit_Info where Rec_ID=?1",nativeQuery = true)
+    @Query(value = "delete from recruit_info where Rec_ID=?1",nativeQuery = true)
     public void deleteByRec_ID(@Param("rec_id") int rec_id);
 
-    @Query(value = "select * from Recruit_Info where Rec_ID=?1",nativeQuery = true)
+    @Query(value = "select * from recruit_info where Rec_ID=?1",nativeQuery = true)
     Recruit_Info findByRec_ID(@Param("rec_id") int rec_id);
 
     @Transactional

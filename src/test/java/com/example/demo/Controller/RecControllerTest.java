@@ -40,7 +40,7 @@ public class RecControllerTest extends DemoApplicationTests {
     @Autowired
     private WebApplicationContext context;
 
-    //@Autowired
+//    @Autowired
     @MockBean
     private RecService recService;
 

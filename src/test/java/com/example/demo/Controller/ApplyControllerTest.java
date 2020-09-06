@@ -68,7 +68,7 @@ public class ApplyControllerTest extends DemoApplicationTests {
     @AfterEach
     void tearDown() {
     }
-
+//
     @Test
     public void add_apply_info() throws Exception {
         MvcResult result1 = mockMvc.perform(get("/add_apply_info?user_id=100&rec_id=49")

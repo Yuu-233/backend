@@ -33,17 +33,11 @@ public class ApplyServiceTest extends DemoApplicationTests {
     @Autowired
     private ApplyService applyService;
 
-    @Autowired
-//    @MockBean
+//    @Autowired
+    @MockBean
     private ApplyRepository applyRepository;
 
     // should be 5 tests
-    @Test
-    public void add_apply_info() {
-
-        applyService.add_apply_info(100, 96);
-        verify(applyRepository, times(1)).add_apply_info(100, 96);
-    }
 
 //    @Test  // 非mock模式
 //    public void getAppbyId() {
@@ -80,7 +74,7 @@ public class ApplyServiceTest extends DemoApplicationTests {
 //        assertEquals(list1, info1);
 //        assertEquals(list1.size(), info1.size());
 //    }
-
+//
 
     @Test
     public void delete_apply_info() {
@@ -92,5 +86,11 @@ public class ApplyServiceTest extends DemoApplicationTests {
     public void update_apply_info() {
         applyService.update_apply_info(99, 96, 0);
         verify(applyRepository, times(1)).update_apply_info(99, 96, 0);
+    }
+        @Test
+    public void add_apply_info() {
+
+        applyService.add_apply_info(100, 96);
+        verify(applyRepository, times(1)).add_apply_info(100, 96);
     }
 }

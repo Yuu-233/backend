@@ -24,6 +24,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         //super.configure(web);
         web.ignoring().antMatchers(HttpMethod.POST, "/register");
+        web.ignoring().antMatchers(HttpMethod.GET, "/register");
+        web.ignoring().antMatchers(HttpMethod.GET, "/get_jobs");
+        web.ignoring().antMatchers(HttpMethod.POST, "/get_jobs");
+        web.ignoring().antMatchers(HttpMethod.GET, "/get_applicants");
+        web.ignoring().antMatchers(HttpMethod.POST, "/get_applicants");
+        web.ignoring().antMatchers(HttpMethod.GET, "/filt_jobs");
+        web.ignoring().antMatchers(HttpMethod.POST, "/filt_jobs");
+        web.ignoring().antMatchers(HttpMethod.GET, "/filt_applicants");
+        web.ignoring().antMatchers(HttpMethod.POST, "/filt_applicants");
     }
 
     @Bean
@@ -65,6 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JwtLoginFilter("/login",authenticationManager()), UsernamePasswordAuthenticationFilter.class)
+                .csrf().disable()
                 .addFilterBefore(new JwtFilter(),UsernamePasswordAuthenticationFilter.class)
                 .csrf().disable();
     }

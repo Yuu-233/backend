@@ -41,32 +41,32 @@ public class UserController {
         return userService.getUserbyUsername(username);
     }
 
-
-    @RequestMapping("/mylogin")
-    public Object login( @RequestParam("username") String username,
-                         @RequestParam("password") String password){
-        JSONObject jsonObject=new JSONObject();
-        User userForBase=userService.getUserbyUsername(username);
-        if(userForBase==null){
-            jsonObject.put("message","登录失败,用户不存在");
-            return jsonObject;
-        }else {
-            if (!userForBase.getPassword().equals(password)){
-                jsonObject.put("message","登录失败,密码错误");
-                return jsonObject;
-            }else {
-                String token = tokenService.getToken(userForBase);
-                jsonObject.put("token", token);
-                jsonObject.put("user", userForBase);
-                return jsonObject;
-            }
-        }
-    }
-
-    @UserLoginToken
-    @RequestMapping("/mygetMessage")
-    public String getMessage(){
-        System.out.println(23333);
-        return "你已通过验证";
-    }
+//
+//    @RequestMapping("/mylogin")
+//    public Object login( @RequestParam("username") String username,
+//                         @RequestParam("password") String password){
+//        JSONObject jsonObject=new JSONObject();
+//        User userForBase=userService.getUserbyUsername(username);
+//        if(userForBase==null){
+//            jsonObject.put("message","登录失败,用户不存在");
+//            return jsonObject;
+//        }else {
+//            if (!userForBase.getPassword().equals(password)){
+//                jsonObject.put("message","登录失败,密码错误");
+//                return jsonObject;
+//            }else {
+//                String token = tokenService.getToken(userForBase);
+//                jsonObject.put("token", token);
+//                jsonObject.put("user", userForBase);
+//                return jsonObject;
+//            }
+//        }
+//    }
+//
+//    @UserLoginToken
+//    @RequestMapping("/mygetMessage")
+//    public String getMessage(){
+//        System.out.println(23333);
+//        return "你已通过验证";
+//    }
 }
