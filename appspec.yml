@@ -5,7 +5,7 @@ files:
   - source: ../
     destination: /home/ec2-user/githubrepo
 hooks:
-   AfterInstall:
+   ApplicationStart:
      - location: start_server.sh
        timeout: 300
        runas: root
