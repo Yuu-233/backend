@@ -32,6 +32,7 @@ phases:
       run: mvn test
     - name: Maven Install
       run: mvn install
+      run: mvn clean package
 artifacts:
   files:
     - '**/*'
