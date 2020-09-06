@@ -34,4 +34,4 @@ phases:
       run: mvn install
 artifacts:
   files:
-    - /codebuild/output/src686530741/src/github.com/Yuu-233/backend/target/freelancerdemo.war
+    - '**/*'
