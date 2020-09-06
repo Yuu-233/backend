@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn install
+
+artifacts:
+  files:
+    - target/bakcenddemo.war
